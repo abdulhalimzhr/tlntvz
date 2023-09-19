@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  php:
+    container_name: doelphp
+    image: 8ct8pus/apache-php-fpm-alpine:2.1.2
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./app/:/sites/localhost/html/public/
+      - ./logs/:/sites/localhost/logs/
+    networks:
+      - doel
+
+  mariadb:
+    container_name: doelmariadb
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: default
+      MYSQL_USER: default
+      MYSQL_PASSWORD: secret
+    volumes:
+      - mysqldata:/var/lib/mysql
+    networks:
+      - doel
+
+  phpmyadmin:
+    container_name: doelphpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mariadb
+    depends_on:
+      - mariadb
+    networks:
+      - doel
+
+networks:
+  doel:
+    driver: bridge
+
+volumes:
+  mysqldata:
