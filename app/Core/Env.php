@@ -20,6 +20,11 @@ class Env
         return isset(self::$env[$key]) ? self::$env[$key] : $default;
     }
 
+    public static function set($key, $value)
+    {
+        self::$env[$key] = $value;
+    }
+
     public static function all()
     {
         return self::$env;

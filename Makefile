@@ -1,10 +1,7 @@
 .SILENT:
 
 DOCKER_COMPOSE = docker-compose
-DOCKER_PHP_CONTAINER_EXEC = $(DOCKER_COMPOSE) exec doelapp
-DOCKER_PHP_EXECUTABLE_CMD = $(DOCKER_PHP_CONTAINER_EXEC) php
-
-CMD_ARTISAN = $(DOCKER_PHP_EXECUTABLE_CMD) artisan
+DOCKER_PHP_CONTAINER_EXEC = docker exec -it doelphp
 
 start:
 	$(DOCKER_COMPOSE) up -d
@@ -20,6 +17,9 @@ stop:
 
 down:
 	$(DOCKER_COMPOSE) down
+
+make bash:
+	$(DOCKER_PHP_CONTAINER_EXEC) sh
 
 .env:
 	cd app && cp .env.example .env

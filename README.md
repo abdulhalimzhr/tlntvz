@@ -28,7 +28,7 @@ Tested on Windows 11 with Hyper-V Docker (Because WSL is too slow).
     make build
    ```
 
-4. After the setup is completed, you can access the application through http://localhost
+4. After the setup is completed, The migration process will be executed for the first time you run the application. You can access the application through http://localhost
 
 ## Preview
 
