@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <style>
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button,
@@ -180,7 +183,7 @@
                     <form class="form-group" action="/deposit" method="POST">
                         <div class="input-group">
                             <label for="amount">Amount:</label>
-                            <input type="number" id="amount" name="amount" min="1" required placeholder="Min 1. e.g 10000">
+                            <input type="number" id="amount" name="amount" min="1" step="0.01" required placeholder="Min 1. e.g 10000">
                         </div>
                         <div class="input-group">
                             <button type="submit" class="btn-login">Deposit</button>
@@ -194,7 +197,7 @@
                     <form class="form-group" action="/withdraw" method="POST">
                         <div class="input-group">
                             <label for="amount">Amount:</label>
-                            <input type="number" id="amount" name="amount" min="1" required placeholder="Min 1. e.g 10000">
+                            <input type="number" id="amount" name="amount" min="1" step="0.01" required placeholder="Min 1. e.g 10000">
                         </div>
                         <div class="input-group">
                             <button type="submit" class="btn-login">Withdraw</button>
@@ -208,7 +211,7 @@
                     <form class="form-group" action="/transfer" method="POST">
                         <div class="input-group">
                             <label for="amount">Amount:</label>
-                            <input type="number" id="amount" name="amount" min="1" required placeholder="Min 1. e.g 10000">
+                            <input type="number" id="amount" name="amount" min="1" step="0.01" required placeholder="Min 1. e.g 10000">
                         </div>
                         <div class="input-group">
                             <label for="destination">Destination:</label>
