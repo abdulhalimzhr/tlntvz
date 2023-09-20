@@ -9,7 +9,7 @@ start:
 restart:
 	$(DOCKER_COMPOSE) restart
 
-build:
+build: env
 	$(DOCKER_COMPOSE) up -d --build --force-recreate
 
 stop:
@@ -18,10 +18,10 @@ stop:
 down:
 	$(DOCKER_COMPOSE) down
 
-make bash:
+bash:
 	$(DOCKER_PHP_CONTAINER_EXEC) sh
 
-.env:
+env:
 	cd app && cp .env.example .env
 
 help:
