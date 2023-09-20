@@ -5,7 +5,6 @@ require_once 'Request.php';
 class Router
 {
     private static $routes = [];
-    private Request $request;
 
     public static function get($path, $controller, $action, $middleware = null)
     {
